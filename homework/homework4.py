@@ -13,6 +13,7 @@ index = [
     ('city_3', 2010),
     ('city_3', 2020),
 ]
+
 population = [
     101,
     201,
@@ -21,6 +22,7 @@ population = [
     103,
     203,
 ]
+
 pop = pd.Series(population, index=index)
 pop_df = pd.DataFrame(
     {
@@ -35,6 +37,7 @@ pop_df = pd.DataFrame(
         ]
     }
 )
+
 pop_df = pop_df.reindex(pd.MultiIndex.from_tuples(index))
 print(pop_df)
 
@@ -45,7 +48,6 @@ print(pop_df.loc[['city_1', 'city_3'], 'something'])
 # ???? ## pop_df_1 = pop_df.loc???['city_1', 'something']
 # ???? ## pop_df_1 = pop_df.loc???[['city_1', 'city_3'], ['total', 'something']]
 # ???? ## pop_df_1 = pop_df.loc???[['city_1', 'city_3'], 'something']
-
 
 # 2. Из получившихся данных выбрать данные по 
 # - 2020 году (для всех столбцов)
@@ -76,7 +78,6 @@ print(data_df)
 print(data_df.loc[(slice(None), 2020), :])
 print(data_df.loc[:, (slice(None), 'job_1')])
 print(data_df.loc[('city_1',), (slice(None), 'job_2')])
-
 
 # 3. Взять за основу DataFrame со следующей структурой
 
@@ -113,9 +114,6 @@ print(data_df.loc['city_1', 'person_1':'person_2'])
 
 print('Пример pd.IndexSlice: выбор city_1 и job_2')
 print(data_df.loc['city_1', pd.IndexSlice[:, 'job_2']])
-
-
-
 
 #4. Привести пример использования inner и outer джойнов для Series (данные примера скорее всего нужно изменить)
 
